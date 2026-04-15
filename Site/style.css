@@ -1,0 +1,594 @@
+/* --- Styles Généraux existants à conserver --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+    scroll-behavior: smooth;
+    padding-top: 80px; /* Espace pour la nav figée */
+}
+
+/* --- Navigation --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #1f1f1f;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00adb5;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: #00adb5;
+}
+
+/* --- Boutons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #00adb5;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 2px solid #00adb5;
+}
+
+.btn:hover {
+    background: #007e85;
+    border-color: #007e85;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #121212;
+    border-color: white;
+}
+
+/* =================================================== */
+/* --- NOUVEAU STYLE : Grosse case Présentation (Hero) --- */
+/* =================================================== */
+
+.hero-container {
+    height: calc(100vh - 80px); /* Prend toute la hauteur moins la nav */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.about-card {
+    background: #1f1f1f;
+    width: 100%;
+    max-width: 1000px; /* Largeur max de la case */
+    padding: 50px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Espace entre photo et texte */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-bottom: 4px solid #00adb5;
+}
+
+/* Style de la zone image */
+.about-image {
+    flex-shrink: 0; /* Empêche l'image de rétrécir */
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Image ronde */
+    overflow: hidden; /* Coupe ce qui dépasse du rond */
+    border: 5px solid #00adb5;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adapte la photo sans la déformer */
+}
+
+/* Style de la zone texte */
+.about-text {
+    flex: 1;
+}
+
+.highlight {
+    color: #00adb5;
+}
+
+.about-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.about-text .subtitle {
+    font-size: 1.2rem;
+    color: #aaaaaa;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.about-text .description {
+    line-height: 1.6;
+    color: #dddddd;
+    margin-bottom: 30px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #1f1f1f;
+    margin-top: auto;
+}
+
+/* --- Responsive (Mobile) --- */
+@media (max-width: 768px) {
+    .about-card {
+        flex-direction: column; /* Empile photo et texte */
+        text-align: center;
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .about-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .about-text h1 {
+        font-size: 2rem;
+    }
+
+    .action-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* --- Style spécifique à la page Contact --- */
+.contact-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 100px 20px 50px;
+}
+
+.contact-card {
+    background: #1f1f1f;
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border-top: 4px solid #00adb5;
+}
+
+.contact-card h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.contact-card p {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#contact-form input:focus, #contact-form textarea:focus {
+    border-color: #00adb5;
+}
+
+/* Séparateur */
+.separator {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #444;
+}
+
+/* --- Social Links --- */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.social-box {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.github { background: #333; }
+.linkedin { background: #0077b5; }
+.email { background: #00adb5; }
+
+.social-box:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.2);
+}
+
+/* Icônes */
+.social-box i {
+    font-size: 1.2rem;
+}
+
+/* --- Section Timeline --- */
+.timeline-section {
+    padding: 80px 20px;
+    background: #121212;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: white;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* La ligne verticale centrale */
+.timeline-line {
+    position: absolute;
+    width: 4px;
+    background: white;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: flex-end; /* Par défaut pour les items 'left' */
+    padding-right: 50%;
+    position: relative;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.timeline-item.right {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 50%;
+}
+
+/* Les boîtes de contenu (les carrés en pointillés sur ta photo) */
+.timeline-content {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px dashed #00adb5; /* Effet pointillés comme sur l'image */
+    width: 80%;
+    color: white;
+    position: relative;
+}
+
+.timeline-item.left .timeline-content { margin-right: 30px; }
+.timeline-item.right .timeline-content { margin-left: 30px; }
+
+/* Les titres dans la timeline */
+.timeline-content h3 {
+    color: #00adb5;
+    margin-bottom: 10px;
+}
+
+.school-name {
+    font-style: italic;
+    color: #aaaaaa;
+    margin-top: 5px;
+}
+
+/* Le losange/point sur la ligne */
+.timeline-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%) rotate(45deg); /* Effet losange comme sur la photo */
+    z-index: 2;
+}
+
+/* Flèche en haut */
+.timeline-arrow {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Responsive : sur mobile, on met tout sur une seule colonne */
+@media (max-width: 768px) {
+    .timeline-line { left: 20px; }
+    .timeline-item { justify-content: flex-start; padding-left: 40px; padding-right: 0; }
+    .timeline-item.right { padding-left: 40px; }
+    .timeline-dot { left: 20px; }
+    .timeline-arrow { left: 20px; }
+}
+
+/* --- Section BTS SIO --- */
+.sio-presentation {
+    padding: 60px 20px;
+    background-color: #121212;
+    color: white;
+}
+
+.sio-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+/* Style des cartes SLAM et SISR */
+.sio-card {
+    flex: 1;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 40px; /* Bordures très arrondies comme sur l'image */
+    text-align: center;
+    border: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.sio-card h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.sio-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.sio-card ul {
+    text-align: left;
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 0.85rem;
+}
+
+/* Effets Néon */
+.neon-blue {
+    border-color: #00d2ff;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+}
+
+.neon-purple {
+    border-color: #9d50bb;
+    box-shadow: 0 0 15px rgba(157, 80, 187, 0.5);
+}
+
+/* Colonne centrale */
+.sio-info {
+    flex: 1;
+    text-align: center;
+}
+
+.sio-info h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.my-choice {
+    margin-top: 40px;
+    font-size: 1.2rem;
+    color: #00d2ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive : On empile tout sur mobile */
+@media (max-width: 900px) {
+    .sio-container {
+        flex-direction: column;
+    }
+    .sio-info {
+        order: -1; /* Met le titre "BTS SIO" en haut sur mobile */
+    }
+}
+/* Header de la page projets */
+.projects-header {
+    text-align: center;
+    padding: 100px 20px 40px;
+}
+
+.projects-header h2 {
+    font-size: 3rem;
+    margin-bottom: 5px;
+}
+
+.projects-header .subtitle {
+    font-size: 1.5rem;
+    color: #aaaaaa;
+    margin-bottom: 30px;
+}
+
+/* Boutons en haut */
+.project-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.btn-drive { background-color: #34a853; border-color: #34a853; } /* Vert Google */
+.btn-skills { background-color: #00adb5; border-color: #00adb5; }
+
+/* Grille de projets format "Portrait" */
+.grid-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 10% 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: #0a224e; /* Bleu très foncé comme la photo */
+    height: 450px;      /* Hauteur importante pour le format vertical */
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Texte en bas de la carte */
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    background: #0d2c63;
+}
+
+.project-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.project-content p {
+    color: #cbd5e0;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.tech-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tech {
+    background: rgba(0, 173, 181, 0.2);
+    color: #00adb5;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.project-image {
+    width: 100%;       /* Prend toute la largeur de la carte */
+    height: 220px;     /* Définit une hauteur FIXE et UNIFORME pour toutes les images */
+    overflow: hidden;  /* Cache tout ce qui dépasse si l'image est trop grande */
+    border-radius: 20px 20px 0 0; /* Arrondit uniquement les coins supérieurs */
+}
+
+/* 2. Redimensionne l'image elle-même à l'intérieur de son conteneur */
+.project-image img {
+    width: 100%;       /* Forcé à prendre 100% de la largeur du conteneur */
+    height: 100%;      /* Forcé à prendre 100% de la hauteur du conteneur */
+    
+    /* PROPRIÉTÉ CRUCIALE : Remplir la zone sans déformer l'image (l'image est centrée et rognée proprement) */
+    object-fit: cover; 
+    
+    /* Positionne l'image au centre pour le rognage */
+    object-position: center; 
+}
+.stage-buttons {
+    display: flex;
+    flex-direction: row; /* Aligne côte à côte */
+    gap: 10px;           /* Espace entre les deux boutons */
+    margin-top: 15px;
+    justify-content: center; /* Centre les boutons dans la carte */
+}
+
+/* On réduit un peu la taille des boutons pour qu'ils logent sur une ligne */
+.stage-buttons .btn-skills {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    flex: 1;            /* Les deux boutons prendront la même largeur */
+    text-align: center;
+    white-space: nowrap; /* Empêche le texte de revenir à la ligne */
+}
+
+/* Optionnel : changer la couleur au survol pour plus de clarté */
+.stage-buttons .btn-skills:hover {
+    background-color: #008f96;
+    transform: scale(1.05);
+}

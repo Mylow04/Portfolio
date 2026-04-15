@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wierez Mylo | Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Wierez Mylo</div>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="stages.html">Stages</a></li>
+            <li><a href="veille.html">Veille</a></li>
+            <li><a href="E5.html">E5</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="content-section contact-page">
+        <div class="contact-card">
+            <h2>Me contacter</h2>
+            <p>Un projet, une question ou une offre de stage ? N'hésitez pas !</p>
+            
+            <form action="https://formspree.io/f/ton_identifiant" method="POST">
+                <input type="text" name="name" placeholder="Votre Nom" required>
+                <input type="email" name="email" placeholder="Votre Email" required>
+                <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+                <button type="submit" class="btn">Envoyer le message</button>
+            </form>
+
+            <hr class="separator">
+
+            <h3>Retrouvez-moi sur</h3>
+            <div class="social-links">
+                <a href="https://github.com/Mylow04" target="_blank" class="social-box github">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/mylo-wierez" target="_blank" class="social-box linkedin">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:mylo.wierez@ecoles-epsi.net" class="social-box email">
+            <i class="fas fa-envelope"></i> Email
+                </a>
+            </div> 
+        </div> 
+    </section>
+            
+    <footer id="contact">
+        <p>Wierez Mylo - 2026 | mylo.wierez@ecoles-epsi.net</p>
+    </footer>

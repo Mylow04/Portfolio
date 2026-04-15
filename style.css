@@ -592,3 +592,53 @@ footer {
     background-color: #008f96;
     transform: scale(1.05);
 }
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start; /* Aligné à gauche comme ton texte */
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.8rem; /* Taille des icônes */
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #00adb5; /* Ta couleur turquoise au survol */
+    transform: translateY(-3px); /* Petit effet de saut */
+}
+/* Conteneur principal pour aligner boutons + icônes */
+.hero-actions-container {
+    display: flex;
+    align-items: center; /* Aligne verticalement les icônes avec les boutons */
+    gap: 25px;           /* Espace entre le bloc boutons et le bloc icônes */
+    margin-top: 25px;
+}
+
+/* Bloc des icônes à droite */
+.hero-socials-side {
+    display: flex;
+    gap: 15px;           /* Espace entre les deux icônes */
+}
+
+.hero-socials-side a {
+    color: #ffffff;      /* Force la couleur blanche */
+    font-size: 2rem;     /* Agrandit les icônes (ajustez selon votre préférence) */
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.hero-socials-side a:hover {
+    color: #00adb5;      /* Rappel du turquoise au survol */
+    transform: scale(1.1);
+}
+
+/* Ajustement mobile : empiler si l'écran est trop petit */
+@media (max-width: 768px) {
+    .hero-actions-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

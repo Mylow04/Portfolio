@@ -6,6 +6,13 @@
     <title>Wierez Mylo | Contact</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("WttCDsksptIN8rYJM"); // Ta clé publique est bien placée
+        })();
+    </script>
 </head>
 <body>
     <nav>
@@ -25,9 +32,9 @@
             <h2>Me contacter</h2>
             <p>Un projet, une question ou une offre de stage ? N'hésitez pas !</p>
             
-            <form action="https://formspree.io/f/ton_identifiant" method="POST">
-                <input type="text" name="name" placeholder="Votre Nom" required>
-                <input type="email" name="email" placeholder="Votre Email" required>
+            <form id="contact-form">
+                <input type="text" name="from_name" placeholder="Votre Nom" required>
+                <input type="email" name="reply_to" placeholder="Votre Email" required>
                 <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
                 <button type="submit" class="btn">Envoyer le message</button>
             </form>
@@ -43,7 +50,7 @@
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
                 <a href="mailto:mylo.wierez@ecoles-epsi.net" class="social-box email">
-            <i class="fas fa-envelope"></i> Email
+                    <i class="fas fa-envelope"></i> Email
                 </a>
             </div> 
         </div> 
@@ -52,3 +59,23 @@
     <footer id="contact">
         <p>Wierez Mylo - 2026 | mylo.wierez@ecoles-epsi.net</p>
     </footer>
+
+    <script type="text/javascript">
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche le rechargement brutal de la page
+
+            const serviceID = 'service_hpryq2d';
+            const templateID = 'template_6pqc00v';
+
+            // Envoi des données du formulaire
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(function() {
+                    alert('Message envoyé avec succès !');
+                    document.getElementById('contact-form').reset(); // Vide les champs après envoi
+                }, function(error) {
+                    alert("Échec de l'envoi... Erreur : " + JSON.stringify(error));
+                });
+        });
+    </script>
+</body>
+</html>

@@ -642,3 +642,23 @@ footer {
         align-items: flex-start;
     }
 }
+
+/* Conteneur du haut de la carte */
+.project-image {
+    width: 100%;
+    height: 220px;            /* Hauteur adaptée au format bannière */
+    background-color: #f3eee8; /* Couleur crème/beige de ton image pour fondre les bords */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px;            /* Petit espace d'aération */
+}
+
+/* L'image elle-même */
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;     /* Affiche 100% de l'image sans rognage */
+    border-radius: 6px;       /* Optionnel : arrondit légèrement les bords de l'image */
+}

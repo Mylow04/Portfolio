@@ -28,12 +28,25 @@
 <!-- En-tête / Navigation -->
 <header class="navbar">
     <div class="logo">Wierez Mylo<span>.</span></div>
-    <nav class="nav-links">
+
+    <div class="nav-actions">
+        <!-- Bouton de bascule Mode Sombre / Clair -->
+        <button id="theme-toggle" class="theme-btn" aria-label="Changer de thème">
+            <i class="fas fa-sun"></i>
+        </button>
+
+        <!-- Bouton Hamburger pour Mobile -->
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu Mobile">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <nav class="nav-links" id="nav-links">
         <a href="#accueil">Accueil</a>
         <a href="#projets">Projets</a>
         <a href="#stages">Stages</a>
-        <a href="#veille">Veille</a>
         <a href="#e5">E5</a>
+        <a href="#veille">Veille</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
@@ -374,6 +387,22 @@
         </div>
     </section>
 
+    <!-- Section Épreuve E5 -->
+    <section id="e5" class="section">
+        <h2 class="section-title">
+            <svg class="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Épreuve E5
+        </h2>
+
+        <div class="bento-grid">
+            <div class="bento-card card-large card-e5">
+                <div class="card-icon card-icon-large">⏳</div>
+                <h3>À venir</h3>
+                <p>Le contenu lié à l'épreuve E5 sera disponible prochainement.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Section Veille Technologique -->
     <section id="veille" class="section">
         <h2 class="section-title">
@@ -412,21 +441,6 @@
         </div>
     </section>
 
-    <!-- Section Épreuve E5 -->
-    <section id="e5" class="section">
-        <h2 class="section-title">
-            <svg class="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Épreuve E5
-        </h2>
-
-        <div class="bento-grid">
-            <div class="bento-card card-large card-e5">
-                <div class="card-icon card-icon-large">⏳</div>
-                <h3>À venir</h3>
-                <p>Le contenu lié à l'épreuve E5 sera disponible prochainement.</p>
-            </div>
-        </div>
-    </section>
 
     <!-- Section Contact -->
     <section id="contact" class="section contact-section">
@@ -469,6 +483,29 @@
             });
     });
 </script>
+
+<script>
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    // Ferme le menu lorsqu'on clique sur un lien
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+        });
+    });
+</script>
+<script src="script.js"></script>
 
 </body>
 </html>

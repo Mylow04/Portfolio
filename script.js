@@ -1,38 +1,3 @@
-/*const cards = document.querySelectorAll('.card');
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-        }
-    });
-}, { threshold: 0.1 });
-
-cards.forEach(card => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(20px)";
-    card.style.transition = "0.6s ease-out";
-    observer.observe(card);
-});
-
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // Ces IDs proviennent de ton interface EmailJS
-    const serviceID = 'VOTRE_SERVICE_ID';
-    const templateID = 'VOTRE_TEMPLATE_ID';
-
-    emailjs.sendForm(serviceID, templateID, this)
-        .then(function() {
-            alert('Message envoyé avec succès !');
-            document.getElementById('contact-form').reset();
-        }, function(error) {
-            alert('Échec de l\'envoi... Erreur : ' + JSON.stringify(error));
-        });
-}); */
-
-
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Mise à jour automatique de l'année du footer
     const yearElement = document.getElementById('year');
@@ -62,4 +27,69 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.add('fade-in');
         observer.observe(el);
     });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- 1. GESTION DU MODE CLAIR / SOMBRE ---
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
+
+    // Vérifier si l'utilisateur avait déjà choisi le mode clair
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        if (themeIcon) {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+    }
+
+    // Événement au clic sur le bouton
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            const isLight = document.body.classList.contains('light-theme');
+
+            // Changer l'icône (Soleil -> Lune)
+            if (themeIcon) {
+                if (isLight) {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                } else {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            }
+
+            // Sauvegarder la préférence
+            localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
+        });
+    }
+
+    // --- 2. GESTION DU MENU MOBILE ---
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
 });

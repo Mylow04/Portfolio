@@ -1,664 +1,1082 @@
-/* --- Styles Généraux existants à conserver --- */
+/* RESET & BASE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #121212;
-    color: white;
-    scroll-behavior: smooth;
-    padding-top: 80px; /* Espace pour la nav figée */
+    background-color: #0d1117;
+    color: #e6edf3;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* --- Navigation --- */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: #1f1f1f;
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* BACKGROUND GLOW */
+.glow-bg {
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 198, 189, 0.15) 0%, rgba(13, 17, 23, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* NAVBAR */
+.navbar {
     position: fixed;
     top: 0;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(13, 17, 23, 0.8);
+    backdrop-filter: blur(12px);
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-nav .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #00adb5;
+.navbar .logo {
+    font-size: 1.3rem;
+    font-weight: 800;
 }
 
-nav ul {
+.navbar .logo span {
+    color: #00c6bd;
+}
+
+.nav-links {
     display: flex;
-    list-style: none;
-    gap: 20px;
+    gap: 2rem;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
+.nav-links a {
+    font-size: 0.95rem;
+    color: #8b949e;
+    transition: color 0.3s ease;
 }
 
-nav a:hover, nav a.active {
-    color: #00adb5;
+.nav-links a:hover {
+    color: #00c6bd;
 }
 
-/* --- Boutons --- */
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #00adb5;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
-    border: 2px solid #00adb5;
+/* SECTIONS & TITRES */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-.btn:hover {
-    background: #007e85;
-    border-color: #007e85;
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    background: transparent;
-    border: 2px solid white;
-    color: white;
-}
-
-.btn-outline:hover {
-    background: white;
-    color: #121212;
-    border-color: white;
-}
-
-/* =================================================== */
-/* --- NOUVEAU STYLE : Grosse case Présentation (Hero) --- */
-/* =================================================== */
-
-.hero-container {
-    height: calc(100vh - 80px); /* Prend toute la hauteur moins la nav */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.about-card {
-    background: #1f1f1f;
-    width: 100%;
-    max-width: 1000px; /* Largeur max de la case */
-    padding: 50px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    gap: 50px; /* Espace entre photo et texte */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border-bottom: 4px solid #00adb5;
-}
-
-/* Style de la zone image */
-.about-image {
-    flex-shrink: 0; /* Empêche l'image de rétrécir */
-    width: 250px;
-    height: 250px;
-    border-radius: 50%; /* Image ronde */
-    overflow: hidden; /* Coupe ce qui dépasse du rond */
-    border: 5px solid #00adb5;
-}
-
-.about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Adapte la photo sans la déformer */
-}
-
-/* Style de la zone texte */
-.about-text {
-    flex: 1;
-}
-
-.highlight {
-    color: #00adb5;
-}
-
-.about-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.about-text .subtitle {
-    font-size: 1.2rem;
-    color: #aaaaaa;
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-.about-text .description {
-    line-height: 1.6;
-    color: #dddddd;
-    margin-bottom: 30px;
-}
-
-.action-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-/* --- Footer --- */
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #1f1f1f;
-    margin-top: auto;
-}
-
-/* --- Responsive (Mobile) --- */
-@media (max-width: 768px) {
-    .about-card {
-        flex-direction: column; /* Empile photo et texte */
-        text-align: center;
-        padding: 30px;
-        gap: 20px;
-    }
-
-    .about-image {
-        width: 150px;
-        height: 150px;
-    }
-
-    .about-text h1 {
-        font-size: 2rem;
-    }
-
-    .action-buttons {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-}
-
-/* --- Style spécifique à la page Contact --- */
-.contact-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 90vh;
-    padding: 100px 20px 50px;
-}
-
-.contact-card {
-    background: #1f1f1f;
-    padding: 40px;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    border-top: 4px solid #00adb5;
-}
-
-.contact-card h2 {
-    margin-bottom: 10px;
-    font-size: 2rem;
-}
-
-.contact-card p {
-    color: #aaa;
-    margin-bottom: 30px;
-}
-
-#contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-#contact-form input, #contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    background: #2a2a2a;
-    border: 1px solid #444;
-    color: white;
-    border-radius: 8px;
-    outline: none;
-    transition: 0.3s;
-}
-
-#contact-form input:focus, #contact-form textarea:focus {
-    border-color: #00adb5;
-}
-
-/* Séparateur */
-.separator {
-    margin: 30px 0;
-    border: 0;
-    border-top: 1px solid #444;
-}
-
-/* --- Social Links --- */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.social-box {
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
-    font-size: 0.9rem;
-}
-
-.github { background: #333; }
-.linkedin { background: #0077b5; }
-.email { background: #00adb5; }
-
-.social-box:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.2);
-}
-
-/* Icônes */
-.social-box i {
-    font-size: 1.2rem;
-}
-
-/* --- Section Timeline --- */
-.timeline-section {
-    padding: 80px 20px;
-    background: #121212;
+.section {
+    padding: 4rem 0;
 }
 
 .section-title {
-    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.icon-sparkle, .icon-code {
+    width: 24px;
+    height: 24px;
+    stroke: #00c6bd;
+}
+
+.subtitle-year {
+    font-size: 1.2rem;
+    color: #00c6bd;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+}
+
+.section-spacer {
+    margin-top: 3rem;
+}
+
+.section-spacer-bottom {
+    margin-bottom: 2rem;
+}
+
+/* CARTE DE PRÉSENTATION (HERO) */
+.hero-presentation {
+    padding-top: 120px;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.presentation-card {
+    background: #161b22;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.profile-avatar img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00c6bd;
+    flex-shrink: 0;
+}
+
+.profile-info h1 {
     font-size: 2.5rem;
-    margin-bottom: 60px;
-    color: white;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+    color: #fff;
+}
+
+.profile-info h1 span {
+    color: #00c6bd;
+}
+
+.profile-info .subtitle {
+    font-style: italic;
+    color: #8b949e;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.profile-info .description {
+    color: #c9d1d9;
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+    font-size: 1rem;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-buttons .social-icon {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-left: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.hero-buttons .social-icon:hover {
+    color: #00c6bd;
+}
+
+/* BOUTONS */
+.btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-teal {
+    background-color: #00c6bd;
+    color: #0d1117;
+    border: 1px solid #00c6bd;
+    font-weight: 700;
+}
+
+.btn-teal:hover {
+    background-color: #00a39c;
+    border-color: #00a39c;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #00c6bd;
+    color: #00c6bd;
+}
+
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+/* BENTO GRID */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.bento-card {
+    background: #161b22;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.8rem;
+}
+
+.card-large {
+    grid-column: span 1;
+}
+
+.bento-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.bento-card p {
+    color: #8b949e;
+    font-size: 0.95rem;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+}
+
+.tag {
+    background: rgba(0, 198, 189, 0.1);
+    color: #00c6bd;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.card-e5 {
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+
+.card-icon-large {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* GRILLE PROJETS */
+.global-project-links {
+    margin-bottom: 2rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background: #161b22;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.project-image {
+    width: calc(100% + 3rem);
+    height: 180px;
+    margin: -1.5rem -1.5rem 1rem -1.5rem;
+    overflow: hidden;
+    background: #0d1117;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.project-category {
+    font-size: 0.8rem;
+    color: #00c6bd;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.project-links a {
+    color: #8b949e;
+    font-size: 1.1rem;
+}
+
+.project-links a:hover {
+    color: #fff;
+}
+
+.project-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-description {
+    color: #8b949e;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.project-tags span {
+    color: #8b949e;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.card-actions {
+    margin-top: 1rem;
+}
+
+/* CONTACT */
+.contact-section {
+    text-align: center;
+}
+
+.contact-box {
+    background: #161b22;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+}
+
+.contact-box h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-box p {
+    color: #8b949e;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 1.5rem auto 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-family: inherit;
+    resize: vertical; /* Permet le redimensionnement uniquement vers le bas */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 1px solid #00c6bd;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.footer-socials a {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.footer-socials a:hover {
+    color: #00c6bd;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #8b949e;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 3rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+    }
+    .presentation-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.8rem;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+.project-image {
+    width: calc(100% + 3rem);
+    height: 300px; /* Augmenté pour voir une plus grande partie de l'image */
+    margin: -1.5rem -1.5rem 1rem -1.5rem;
+    overflow: hidden;
+    background: #0d1117;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top; /* Calpe le cadrage sur le coin supérieur gauche pour afficher le texte de l'image */
+    transition: transform 0.3s ease;
+}
+
+.parcours-section {
+    background-color: #121212;
+    color: #ffffff;
+    padding: 40px;
+    text-align: center;
 }
 
 .timeline {
     position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 40px auto;
 }
 
-/* La ligne verticale centrale */
-.timeline-line {
+.timeline::after {
+    content: '';
     position: absolute;
-    width: 4px;
-    background: white;
+    width: 3px;
+    background-color: #ffffff;
     top: 0;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    margin-left: -1.5px;
 }
 
 .timeline-item {
-    display: flex;
-    justify-content: flex-end; /* Par défaut pour les items 'left' */
-    padding-right: 50%;
+    padding: 10px 40px;
     position: relative;
-    margin-bottom: 50px;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    right: -7px;
+    background-color: #121212;
+    border: 3px solid #00c8c8;
+    top: 15px;
+    transform: rotate(45deg);
+    z-index: 1;
+}
+
+.timeline-item.right::after { left: -7px; }
+
+.content {
+    padding: 20px;
+    background-color: #1e1e1e;
+    border: 1px dashed #00c8c8;
+    border-radius: 8px;
+}
+
+.content h3 { color: #00c8c8; margin-top: 5px; }
+.content .school { font-style: italic; color: #aaa; }
+
+.bts-sio-section {
+    display: flex;
+    flex-direction: row; /* Forcer le sens horizontal */
+    align-items: center; /* Aligner verticalement au centre */
+    justify-content: center; /* Centrer horizontalement */
+    gap: 20px;
+    background-color: #0b0d12;
+    color: #e0e0e0;
+    padding: 60px 20px;
     width: 100%;
+    max-width: 1200px; /* Limiter la largeur maximale si besoin */
+    margin: 0 auto;
+    box-sizing: border-box;
+    flex-wrap: nowrap; /* EMPÊCHE le retour à la ligne (évite que SISR glisse en dessous) */
+}
+
+/* Éléments enfants : SLAM, BTS SIO et SISR */
+.card-slam,
+.bts-info,
+.card-sisr {
+    flex: 1 1 0; /* Assure que les 3 colonnes occupent la même largeur */
+    min-width: 0; /* Permet la réduction sur petits écrans sans casser le layout */
+}
+
+/* Styles des cartes SLAM et SISR */
+.card {
+    background-color: #12151e;
+    border-radius: 20px;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    font-size: 0.85em;
+    line-height: 1.5;
+}
+
+/* Bordures & Ombres Néon */
+.card-slam {
+    border: 2px solid #00d2ff;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+}
+
+.card-sisr {
+    border: 2px solid #a855f7;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+/* Bloc central BTS SIO */
+.bts-info {
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* Responsive : autoriser le passage à la verticale SEULEMENT sur mobile */
+@media (max-width: 850px) {
+    .bts-sio-section {
+        flex-direction: column; /* Sur très petit écran, ils s'empilent proprement */
+        flex-wrap: wrap;
+    }
+
+    .card-slam,
+    .bts-info,
+    .card-sisr {
+        width: 100%;
+    }
+}
+.bts-sio-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #0b0d12;
+    color: #e0e0e0;
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    flex-wrap: nowrap; /* Conserve l'alignement strict sur une seule ligne */
+}
+
+.card-slam,
+.bts-info,
+.card-sisr {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+/* CARTES SLAM & SISR */
+.card {
+    background-color: #12151e;
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-sizing: border-box;
+    font-size: 0.88em;
+    line-height: 1.5;
+}
+
+/* TITRES DES BOÎTES PLUS GROS ET EN COULEUR */
+.title-slam {
+    font-size: 2.2em; /* Taille plus grosse */
+    color: #00d2ff;   /* Bleu Cyan */
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+}
+
+.title-sisr {
+    font-size: 2.2em; /* Taille plus grosse */
+    color: #a855f7;   /* Violet Neon */
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+.title-bts {
+    font-size: 2.5em;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* BORDURES & OMBRES */
+.card-slam {
+    border: 2px solid #00d2ff;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+}
+
+.card-sisr {
+    border: 2px solid #a855f7;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+/* BLOC CENTRAL & PHRASE DU BAS COLORÉE */
+.bts-info {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.badge-option {
+    color: #00d2ff; /* Couleur vive */
+    font-weight: 800;
+    font-size: 0.95em;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 2px dashed #00d2ff;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background-color: rgba(0, 210, 255, 0.08);
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.2);
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* RESPONSIVE MOBILE SEULEMENT */
+@media (max-width: 850px) {
+    .bts-sio-section {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .card-slam,
+    .bts-info,
+    .card-sisr {
+        width: 100%;
+    }
+}
+
+
+.bts-sio-section {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* FORCE TOUTES LES CARTES À AVOIR LA MÊME HAUTEUR */
+    justify-content: center;
+    gap: 20px;
+    background-color: #0b0d12;
+    color: #e0e0e0;
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+}
+
+.card-slam,
+.bts-info,
+.card-sisr {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+/* CARTES SLAM & SISR */
+.card {
+    background-color: #12151e;
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-sizing: border-box;
+    font-size: 0.88em;
+    line-height: 1.5;
+    display: flex; /* Permet d'étirer proprement le contenu */
+    flex-direction: column;
+    justify-content: space-between; /* Distribue l'espace pour que le bas s'aligne */
+}
+
+/* TITRES DES BOÎTES */
+.title-slam {
+    font-size: 2.2em;
+    color: #00d2ff;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+}
+
+.title-sisr {
+    font-size: 2.2em;
+    color: #a855f7;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+.title-bts {
+    font-size: 2.5em;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* BORDURES & OMBRES */
+.card-slam {
+    border: 2px solid #00d2ff;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+}
+
+.card-sisr {
+    border: 2px solid #a855f7;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+/* BLOC CENTRAL & PHRASE DU BAS */
+.bts-info {
+    text-align: center;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.badge-option {
+    color: #00d2ff;
+    font-weight: 800;
+    font-size: 0.95em;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 2px dashed #00d2ff;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background-color: rgba(0, 210, 255, 0.08);
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.2);
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 850px) {
+    .bts-sio-section {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .card-slam,
+    .bts-info,
+    .card-sisr {
+        width: 100%;
+    }
+}
+
+/* SECTION SANS FOND SOMBRE RAGOUTANT */
+.parcours-section {
+    background-color: transparent; /* Supprime le fond noir */
+    color: #e0e0e0;
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* TITRE DU PARCOURS IDENTIQUE AU TITRE BTS SIO */
+.title-parcours {
+    font-size: 2.5em;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* TIMELINE CONTAINER */
+.timeline {
+    position: relative;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* LIGNE CENTRALE VERTICALE */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #ffffff;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+/* ÉLÉMENTS DE LA TIMELINE */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
 }
 
 .timeline-item.right {
-    justify-content: flex-start;
-    padding-right: 0;
-    padding-left: 50%;
-}
-
-/* Les boîtes de contenu (les carrés en pointillés sur ta photo) */
-.timeline-content {
-    background: #2a2a2a;
-    padding: 20px;
-    border-radius: 8px;
-    border: 2px dashed #00adb5; /* Effet pointillés comme sur l'image */
-    width: 80%;
-    color: white;
-    position: relative;
-}
-
-.timeline-item.left .timeline-content { margin-right: 30px; }
-.timeline-item.right .timeline-content { margin-left: 30px; }
-
-/* Les titres dans la timeline */
-.timeline-content h3 {
-    color: #00adb5;
-    margin-bottom: 10px;
-}
-
-.school-name {
-    font-style: italic;
-    color: #aaaaaa;
-    margin-top: 5px;
-}
-
-/* Le losange/point sur la ligne */
-.timeline-dot {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: white;
     left: 50%;
-    top: 20px;
-    transform: translateX(-50%) rotate(45deg); /* Effet losange comme sur la photo */
-    z-index: 2;
-}
-
-/* Flèche en haut */
-.timeline-arrow {
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 1.5rem;
-}
-
-/* Responsive : sur mobile, on met tout sur une seule colonne */
-@media (max-width: 768px) {
-    .timeline-line { left: 20px; }
-    .timeline-item { justify-content: flex-start; padding-left: 40px; padding-right: 0; }
-    .timeline-item.right { padding-left: 40px; }
-    .timeline-dot { left: 20px; }
-    .timeline-arrow { left: 20px; }
-}
-
-/* --- Section BTS SIO --- */
-.sio-presentation {
-    padding: 60px 20px;
-    background-color: #121212;
-    color: white;
-}
-
-.sio-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 30px;
-}
-
-/* Style des cartes SLAM et SISR */
-.sio-card {
-    flex: 1;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 40px; /* Bordures très arrondies comme sur l'image */
-    text-align: center;
-    border: 3px solid transparent;
-    transition: 0.3s;
-}
-
-.sio-card h3 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.sio-card p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 15px;
-}
-
-.sio-card ul {
     text-align: left;
-    list-style: disc;
-    padding-left: 20px;
-    font-size: 0.85rem;
 }
 
-/* Effets Néon */
-.neon-blue {
-    border-color: #00d2ff;
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+/* LOSANGES CYAN DU MILIEU */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: -6px;
+    background-color: #0b0d12; /* Assorti à votre fond global */
+    border: 2px solid #00d2ff;
+    top: 25px;
+    transform: rotate(45deg);
+    z-index: 1;
+    box-shadow: 0 0 8px rgba(0, 210, 255, 0.8);
 }
 
-.neon-purple {
-    border-color: #9d50bb;
-    box-shadow: 0 0 15px rgba(157, 80, 187, 0.5);
+.timeline-item.right::after {
+    left: -6px;
 }
 
-/* Colonne centrale */
-.sio-info {
-    flex: 1;
-    text-align: center;
+/* CONTENU DES BOÎTES (TRANSPARENT + BORDURE TIRETÉE CYAN) */
+.content {
+    padding: 20px;
+    background-color: rgba(18, 21, 30, 0.6); /* Fond très léger et moderne au lieu de noir mat */
+    border: 1px dashed #00d2ff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.15);
 }
 
-.sio-info h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.my-choice {
-    margin-top: 40px;
-    font-size: 1.2rem;
-    color: #00d2ff;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Responsive : On empile tout sur mobile */
-@media (max-width: 900px) {
-    .sio-container {
-        flex-direction: column;
-    }
-    .sio-info {
-        order: -1; /* Met le titre "BTS SIO" en haut sur mobile */
-    }
-}
-/* Header de la page projets */
-.projects-header {
-    text-align: center;
-    padding: 100px 20px 40px;
-}
-
-.projects-header h2 {
-    font-size: 3rem;
+.date {
+    font-size: 0.9em;
+    color: #a0a0a0;
+    display: block;
     margin-bottom: 5px;
 }
 
-.projects-header .subtitle {
-    font-size: 1.5rem;
-    color: #aaaaaa;
-    margin-bottom: 30px;
+.item-title {
+    color: #00d2ff;
+    font-size: 1.2em;
+    margin: 5px 0 10px 0;
+    font-weight: 700;
 }
 
-/* Boutons en haut */
-.project-actions {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
+.school {
+    font-style: italic;
+    color: #b0b0b0;
+    margin-top: 5px;
+    font-size: 0.9em;
 }
 
-.btn-drive { background-color: #34a853; border-color: #34a853; } /* Vert Google */
-.btn-skills { background-color: #00adb5; border-color: #00adb5; }
-
-/* Grille de projets format "Portrait" */
-.grid-projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 0 10% 50px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.project-card {
-    background: #0a224e; /* Bleu très foncé comme la photo */
-    height: 450px;      /* Hauteur importante pour le format vertical */
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Texte en bas de la carte */
-    padding: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-    background: #0d2c63;
-}
-
-.project-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: white;
-}
-
-.project-content p {
-    color: #cbd5e0;
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.tech-tags {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.tech {
-    background: rgba(0, 173, 181, 0.2);
-    color: #00adb5;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-.project-image {
-    width: 100%;       /* Prend toute la largeur de la carte */
-    height: 220px;     /* Définit une hauteur FIXE et UNIFORME pour toutes les images */
-    overflow: hidden;  /* Cache tout ce qui dépasse si l'image est trop grande */
-    border-radius: 20px 20px 0 0; /* Arrondit uniquement les coins supérieurs */
-}
-
-/* 2. Redimensionne l'image elle-même à l'intérieur de son conteneur */
-.project-image img {
-    width: 100%;       /* Forcé à prendre 100% de la largeur du conteneur */
-    height: 100%;      /* Forcé à prendre 100% de la hauteur du conteneur */
-    
-    /* PROPRIÉTÉ CRUCIALE : Remplir la zone sans déformer l'image (l'image est centrée et rognée proprement) */
-    object-fit: cover; 
-    
-    /* Positionne l'image au centre pour le rognage */
-    object-position: center; 
-}
-.stage-buttons {
-    display: flex;
-    flex-direction: row; /* Aligne côte à côte */
-    gap: 10px;           /* Espace entre les deux boutons */
-    margin-top: 15px;
-    justify-content: center; /* Centre les boutons dans la carte */
-}
-
-/* On réduit un peu la taille des boutons pour qu'ils logent sur une ligne */
-.stage-buttons .btn-skills {
-    padding: 8px 12px;
-    font-size: 0.85rem;
-    flex: 1;            /* Les deux boutons prendront la même largeur */
-    text-align: center;
-    white-space: nowrap; /* Empêche le texte de revenir à la ligne */
-}
-
-/* Optionnel : changer la couleur au survol pour plus de clarté */
-.stage-buttons .btn-skills:hover {
-    background-color: #008f96;
-    transform: scale(1.05);
-}
-.social-icons {
-    margin-top: 20px;
-    display: flex;
-    gap: 20px;
-    justify-content: flex-start; /* Aligné à gauche comme ton texte */
-}
-
-.social-icons a {
-    color: white;
-    font-size: 1.8rem; /* Taille des icônes */
-    transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #00adb5; /* Ta couleur turquoise au survol */
-    transform: translateY(-3px); /* Petit effet de saut */
-}
-/* Conteneur principal pour aligner boutons + icônes */
-.hero-actions-container {
-    display: flex;
-    align-items: center; /* Aligne verticalement les icônes avec les boutons */
-    gap: 25px;           /* Espace entre le bloc boutons et le bloc icônes */
-    margin-top: 25px;
-}
-
-/* Bloc des icônes à droite */
-.hero-socials-side {
-    display: flex;
-    gap: 15px;           /* Espace entre les deux icônes */
-}
-
-.hero-socials-side a {
-    color: #ffffff;      /* Force la couleur blanche */
-    font-size: 2rem;     /* Agrandit les icônes (ajustez selon votre préférence) */
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.hero-socials-side a:hover {
-    color: #00adb5;      /* Rappel du turquoise au survol */
-    transform: scale(1.1);
-}
-
-/* Ajustement mobile : empiler si l'écran est trop petit */
+/* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
-    .hero-actions-container {
-        flex-direction: column;
-        align-items: flex-start;
+    .timeline::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 10px;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        left: 0;
+        text-align: left;
+    }
+
+    .timeline-item::after {
+        left: 14px;
     }
 }
 
-/* Conteneur du haut de la carte */
-.project-image {
-    width: 100%;
-    height: 220px;            /* Hauteur adaptée au format bannière */
-    background-color: #f3eee8; /* Couleur crème/beige de ton image pour fondre les bords */
+/* SECTION PRINCIPALE SANS BACKGROUND SOMBRE */
+.bts-sio-section {
     display: flex;
+    flex-direction: row;
+    align-items: stretch; /* Conserve la même hauteur pour SLAM et SISR */
     justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    padding: 10px;            /* Petit espace d'aération */
+    gap: 20px;
+    background-color: transparent; /* Supprime le fond sombre de la section */
+    color: #e0e0e0;
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
 }
 
-/* L'image elle-même */
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;     /* Affiche 100% de l'image sans rognage */
-    border-radius: 6px;       /* Optionnel : arrondit légèrement les bords de l'image */
+.card-slam,
+.bts-info,
+.card-sisr {
+    flex: 1 1 0;
+    min-width: 0;
 }
+
+/* CARTES SLAM & SISR (Fond subtil avec légère transparence) */
+.card {
+    background-color: rgba(18, 21, 30, 0.6); /* Transparence fluide au lieu du noir mat */
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-sizing: border-box;
+    font-size: 0.88em;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* BORDURES & OMBRES NÉON (CONSERVÉES) */
+.card-slam {
+    border: 2px solid #00d2ff;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+}
+
+.card-sisr {
+    border: 2px solid #a855f7;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+}
+
+/* TITRES DES BOÎTES ET BLOC CENTRAL */
+.title-slam {
+    font-size: 2.2em;
+    color: #00d2ff;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+}
+
+.title-sisr {
+    font-size: 2.2em;
+    color: #a855f7;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+.title-bts {
+    font-size: 2.5em;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.bts-info {
+    text-align: center;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BADGE OPTION SLAM */
+.badge-option {
+    color: #00d2ff;
+    font-weight: 800;
+    font-size: 0.95em;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 2px dashed #00d2ff;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background-color: rgba(0, 210, 255, 0.08);
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.2);
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 850px) {
+    .bts-sio-section {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .card-slam,
+    .bts-info,
+    .card-sisr {
+        width: 100%;
+    }
+}
+

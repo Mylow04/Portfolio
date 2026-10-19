@@ -1,4 +1,4 @@
-const cards = document.querySelectorAll('.card');
+/*const cards = document.querySelectorAll('.card');
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -30,4 +30,36 @@ document.getElementById('contact-form').addEventListener('submit', function(even
         }, function(error) {
             alert('Échec de l\'envoi... Erreur : ' + JSON.stringify(error));
         });
+}); */
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mise à jour automatique de l'année du footer
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+
+    // 2. Animation d'apparition au défilement (Scroll Reveal)
+    const animatedElements = document.querySelectorAll('.fade-in, .project-card, .bento-card');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Ne joue l'animation qu'une seule fois
+            }
+        });
+    }, observerOptions);
+
+    animatedElements.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
 });

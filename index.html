@@ -3,87 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wierez Mylo | Accueil</title>
+    <title>Wierez Mylo | Portfolio Full-Stack</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    
-    <nav>
-        <div class="logo">Wierez Mylo</div>
-        <ul>
-            <li><a href="index.html" class="active">Accueil</a></li>
-            <li><a href="projets.html">Projets</a></li>
-            <li><a href="stages.html">Stages</a></li>
-            <li><a href="veille.html">Veille</a></li>
-            <li><a href="E5.html">E5</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
 
-    <header class="hero-container">
-        <div class="about-card">
-            <div class="about-image">
-                <img src="Image/portrait.jpg" alt="Photo de Wierez Mylo">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome & EmailJS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("WttCDsksptIN8rYJM");
+        })();
+    </script>
+</head>
+<body id="accueil">
+
+<!-- Halo lumineux en arrière-plan -->
+<div class="glow-bg"></div>
+
+<!-- En-tête / Navigation -->
+<header class="navbar">
+    <div class="logo">Wierez Mylo<span>.</span></div>
+    <nav class="nav-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#projets">Projets</a>
+        <a href="#stages">Stages</a>
+        <a href="#veille">Veille</a>
+        <a href="#e5">E5</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <!-- Section Accueil / Carte de Présentation -->
+    <section class="hero-presentation">
+        <div class="presentation-card">
+            <div class="profile-avatar">
+                <img src="Image/portrait.jpg" alt="Mylo Wierez">
             </div>
-            <div class="about-text">
-                <h1>Bonjour, je suis <span class="highlight">Mylo</span></h1>
+
+            <div class="profile-info">
+                <h1>Bonjour, je suis <span>Mylo</span></h1>
                 <p class="subtitle">Étudiant en 1ère année de BTS SIO</p>
                 <p class="description">
-                    Passionné par l'informatique et les nouvelles technologies, je prépare actuellement mon BTS Services Informatiques aux Organisations. 
-                    Curieux et motivé, je m'intéresse particulièrement au développement. 
-                    Bienvenue sur mon portfolio où je présente mon parcours, mes projets et mes expériences.
+                    Passionné par l'informatique et les nouvelles technologies, je prépare actuellement mon BTS Services Informatiques aux Organisations. Curieux et motivé, je m'intéresse particulièrement au développement. Bienvenue sur mon portfolio où je présente mon parcours, mes projets et mes expériences.
                 </p>
-                <div class="hero-actions-container">
-                    <div class="hero-actions">
-                        <a href="Mon_CV.pdf" class="btn btn-fill">Mon CV</a>
-                        <a href="projets.html" class="btn btn-fill">Mes Projets</a>
-                        <a href="contact.html" class="btn btn-outline">Contact</a>
-                    </div>
 
-                <div class="hero-socials-side">
-                    <a href="https://github.com/Mylow04" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/mylo-wierez" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>  
+                <div class="hero-buttons">
+                    <a href="Wierez%20Mylo%20CV.pdf" target="_blank" class="btn btn-teal">Mon CV</a>
+                    <a href="https://github.com/Mylow04" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mylo-wierez" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
-    </header>
-
-    <section class="timeline-section">
-    <h2 class="section-title">Parcours Scolaire</h2>
-    
-    <div class="timeline">
-        <div class="timeline-arrow">▲</div>
-        <div class="timeline-line"></div>
-
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <h3>BTS (2025 - à ce jour)</h3>
-                <p>BTS SIO SLAM</p>
-                <p class="school-name">Espi</p>
-            </div>
-            <div class="timeline-dot"></div>
-        </div>
-
-        <div class="timeline-item right">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-                <h3>Lycée (2022 - 2025)</h3>
-                <p>Bac mention assez bien</p>
-                <p>Spécialité Math NSI</p>
-                <p class="school-name">Lycée Jean Jaurès</p>
-            </div>
-        </div>
-    </div>
     </section>
 
-    <section class="sio-presentation">
-    <div class="sio-container">
-        <div class="sio-card neon-blue">
-            <h3>SLAM</h3>
-            <p>L’option Solutions logicielles et applications métiers forme des spécialistes des logiciels (rédaction d’un cahier des charges, formulation des besoins et spécifications, développement, intégration au sein de la société).
-            Les techniciens supérieurs en informatique option SLAM, sont préparés aux métiers de :
+    <section class="parcours-section">
+        <h2 class="section-title">
+            <span class="title-icon">&#127891;</span> Parcours Scolaire
+        </h2>
+
+        <div class="timeline">
+
+            <!-- Étape 1 : BTS 2ème année -->
+            <div class="timeline-item left">
+                <div class="content">
+                    <span class="date">2026 - à ce jour</span>
+                    <h3 class="item-title">BTS SIO - 2ème année</h3>
+                    <p>BTS SIO option SLAM</p>
+                    <p class="school">EPSI</p>
+                </div>
+            </div>
+
+            <!-- Étape 2 : BTS 1ère année -->
+            <div class="timeline-item right">
+                <div class="content">
+                    <span class="date">2025 - 2026</span>
+                    <h3 class="item-title">BTS SIO - 1ère année</h3>
+                    <p>BTS SIO option SLAM</p>
+                    <p class="school">EPSI</p>
+                </div>
+            </div>
+
+            <!-- Étape 3 : Lycée -->
+            <div class="timeline-item left">
+                <div class="content">
+                    <span class="date">2022 - 2025</span>
+                    <h3 class="item-title">Lycée</h3>
+                    <p>Bac mention Assez Bien - Spécialité Math & NSI</p>
+                    <p class="school">Lycée Jean Jaurès</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bts-sio-section">
+
+        <!-- Carte SLAM (Option choisie) -->
+        <div class="card card-slam">
+            <h3 class="title-slam">SLAM</h3>
+            <p>
+                L'option <strong>Solutions logicielles et applications métiers</strong> forme des spécialistes des logiciels
+                (rédaction d'un cahier des charges, formulation des besoins et spécifications, développement, intégration au sein de la société).
             </p>
+            <p>Les techniciens supérieurs en informatique option SLAM sont préparés aux métiers de :</p>
             <ul>
                 <li>Développeur d'applications</li>
                 <li>Développeur informatique</li>
@@ -91,32 +119,356 @@
             </ul>
         </div>
 
-        <div class="sio-info">
-            <h2>BTS SIO</h2>
-            <p>Le Brevet de Technicien Supérieur aux Services Informatiques aux Organisations (BTS SIO), s'adresse à ceux qui souhaitent se former en deux ans aux métiers d'administrateur réseau ou de développeur. Et ainsi par la suite intégré directement le marché du travail ou continuer des études, dans le domaine de l'informatique.</p>
-            <div class="my-choice">
-                J'ai personnellement choisi l'option <strong>SLAM</strong>
+        <!-- Bloc Central : Présentation BTS SIO -->
+        <div class="bts-info">
+            <h2 class="title-bts">BTS SIO</h2>
+            <p>
+                Le <strong>Brevet de Technicien Supérieur aux Services Informatiques aux Organisations (BTS SIO)</strong>
+                s'adresse à ceux qui souhaitent se former en deux ans aux métiers d'administrateur réseau ou de développeur,
+                et ainsi intégrer directement le marché du travail ou continuer des études dans l'informatique.
+            </p>
+            <div class="badge-option">
+                J'AI PERSONNELLEMENT CHOISI L'OPTION SLAM
             </div>
         </div>
 
-        <div class="sio-card neon-purple">
-            <h3>SISR</h3>
-            <p>L’option Solutions d’infrastructure, systèmes et réseaux prépare des spécialistes en réseaux et équipements informatiques (installation, maintenance, sécurité). 
-                Les titulaires du BTS SIO option SISR peuvent exercer les métiers suivants :
+        <!-- Carte SISR -->
+        <div class="card card-sisr">
+            <h3 class="title-sisr">SISR</h3>
+            <p>
+                L'option <strong>Solutions d'infrastructure, systèmes et réseaux</strong> prépare des spécialistes en réseaux
+                et équipements informatiques (installation, maintenance, sécurité).
             </p>
+            <p>Les titulaires du BTS SIO option SISR peuvent exercer les métiers suivants :</p>
             <ul>
                 <li>Administrateur systèmes et réseaux</li>
                 <li>Informaticien support et déploiement</li>
                 <li>Support systèmes et réseaux</li>
             </ul>
         </div>
-    </div>
+
     </section>
 
-    <footer id="contact">
-        <p>Wierez Mylo - 2026 | mylo.wierez@ecoles-epsi.net</p>
-    </footer>
+    <!-- Section Expertise & Compétences -->
+    <section class="section">
+        <h2 class="section-title">
+            <svg class="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18m9-9H3m15.364 6.364l-12.728-12.728m0 12.728l12.728-12.728"/></svg>
+            Expertise & Compétences
+        </h2>
 
-    <script src="script.js"></script>
+        <div class="bento-grid">
+            <div class="bento-card card-large">
+                <h3>Développement & Conception Web</h3>
+                <p>Création d'architectures, développement backend/frontend et gestion de bases de données relationnelles.</p>
+                <div class="skills-tags">
+                    <span class="tag">HTML / CSS</span>
+                    <span class="tag">JavaScript / Vuejs</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">SQL / MySQL / NoSQL</span>
+                    <span class="tag">GitHub</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projets" class="section">
+        <h2 class="section-title">
+            <svg class="icon-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Mes Réalisations
+        </h2>
+
+        <div class="hero-buttons global-project-links">
+            <a href="https://drive.google.com/drive/folders/18zInjLvjddvluJNFk3OKV1EmmI3nU1xx?usp=drive_link" target="_blank" class="btn btn-secondary">
+                <i class="fab fa-google-drive"></i> Tous mes projets (Drive)
+            </a>
+            <a href="Sujet/BTS%20SIO%20-%202025%20-%20Epreuve%20E5%20-%20Tableau%20de%20synthèse.xlsx" target="_blank" class="btn btn-secondary">
+                <i class="fas fa-table"></i> Tableau de compétences
+            </a>
+        </div>
+
+        <h3 class="subtitle-year">1ère Année</h3>
+        <div class="projects-grid">
+            <!-- Bataille Navale -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="Image/bataille-navale.jpg" alt="Aperçu Bataille Navale">
+                </div>
+                <div class="project-header">
+                    <span class="project-category">Algorithmique</span>
+                    <div class="project-links">
+                        <a href="https://github.com/TheoFreihuber/BatailleNaval.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3 class="project-title">Bataille Navale</h3>
+                <p class="project-description">Jeu de la Bataille navale fonctionnel sans interface graphique.</p>
+                <div class="project-tags">
+                    <span>#PHP</span>
+                </div>
+                <div class="hero-buttons card-actions">
+                    <a href="Sujet/Sujet _ Mini projet Algo.pdf" target="_blank" class="btn btn-secondary btn-sm"><i class="fas fa-file-pdf"></i> Sujet</a>
+                    <a href="https://github.com/TheoFreihuber/BatailleNaval.git" target="_blank" class="btn btn-teal btn-sm"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </article>
+
+            <!-- App de Clavardage -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="https://static.vecteezy.com/ti/vecteur-libre/p1/5076881-vector-modern-chatting-app-mobile-user-interface-concept-design-mobile-messenger-app-with-chat-contact-list-chatting-app-ui-concept-design-vectoriel.jpg" alt="Aperçu Application de Chat">
+                </div>
+                <div class="project-header">
+                    <span class="project-category">Web Full-Stack</span>
+                    <div class="project-links">
+                        <a href="https://github.com/TheoFreihuber/Clavardage.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3 class="project-title">App de Clavardage</h3>
+                <p class="project-description">Développement d'une application de chat en ligne.</p>
+                <div class="project-tags">
+                    <span>#PHP</span>
+                    <span>#HTML/CSS</span>
+                    <span>#SQL</span>
+                </div>
+                <div class="hero-buttons card-actions">
+                    <a href="Sujet/Sujet _ B1 - EPTR - Projet transversal Web.pdf" target="_blank" class="btn btn-secondary btn-sm"><i class="fas fa-file-pdf"></i> Sujet</a>
+                    <a href="https://github.com/TheoFreihuber/Clavardage.git" target="_blank" class="btn btn-teal btn-sm"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </article>
+
+            <!-- Site Web d'Hôtel -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="Image/hotel screen.png" alt="Aperçu Site Hôtel">
+                </div>
+                <div class="project-header">
+                    <span class="project-category">Web Dynamic</span>
+                    <div class="project-links">
+                        <a href="https://github.com/MortalDemon3/hotel-neptune.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3 class="project-title">Site Web d'Hôtel</h3>
+                <p class="project-description">Création d'un site web pour faire des réservations en ligne.</p>
+                <div class="project-tags">
+                    <span>#PHP</span>
+                    <span>#HTML/CSS</span>
+                    <span>#SQL</span>
+                    <span>#JS</span>
+                </div>
+                <div class="hero-buttons card-actions">
+                    <a href="Sujet/Sujet hotel neptune.pdf" target="_blank" class="btn btn-secondary btn-sm"><i class="fas fa-file-pdf"></i> Sujet</a>
+                    <a href="https://github.com/MortalDemon3/hotel-neptune.git" target="_blank" class="btn btn-teal btn-sm"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </article>
+
+            <!-- Projet BD -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="Image/Gite.png" alt="Aperçu Base de données Gîtes">
+                </div>
+                <div class="project-header">
+                    <span class="project-category">Base de Données</span>
+                </div>
+                <h3 class="project-title">Projet Base de Données</h3>
+                <p class="project-description">Base de donnée pour Gîtes.</p>
+                <div class="project-tags">
+                    <span>#SQL</span>
+                </div>
+                <div class="hero-buttons card-actions">
+                    <a href="Sujet/Sujet _ SN1 Projet BD -  Gites.pdf" target="_blank" class="btn btn-secondary btn-sm"><i class="fas fa-file-pdf"></i> Sujet</a>
+                    <a href="code_rendu/Rendu _ Pdf Gite.pdf" target="_blank" class="btn btn-teal btn-sm"><i class="fas fa-certificate"></i> Rendu</a>
+                </div>
+            </article>
+
+            <!-- Bibliothèque Python -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="Image/Python.jpg" alt="Aperçu Projet Python">
+                </div>
+                <div class="project-header">
+                    <span class="project-category">Python</span>
+                    <div class="project-links">
+                        <a href="https://github.com/TheoFreihuber/pythonUni.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3 class="project-title">Bibliothèque Python</h3>
+                <p class="project-description">Développement d'une application de gestion en Python.</p>
+                <div class="project-tags">
+                    <span>#Python</span>
+                </div>
+                <div class="hero-buttons card-actions">
+                    <a href="Sujet/Sujet _ B1 Projet Python 2025-2026.pdf" target="_blank" class="btn btn-secondary btn-sm"><i class="fas fa-file-pdf"></i> Sujet</a>
+                    <a href="https://github.com/TheoFreihuber/pythonUni.git" target="_blank" class="btn btn-teal btn-sm"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </article>
+
+            <!-- Appli de Jeux -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="Image/MiiProject.png" alt="Aperçu Application Jeux IA">
+                </div>
+                <div class="project-header">
+                    <span class="project-category">Intelligence Artificielle</span>
+                    <div class="project-links">
+                        <a href="https://github.com/MiiProject/instantly-play-games.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <h3 class="project-title">Appli de Jeux</h3>
+                <p class="project-description">Création d'une application de jeux en ligne avec l'IA.</p>
+                <div class="project-tags">
+                    <span>#IA</span>
+                </div>
+                <div class="hero-buttons card-actions">
+                    <a href="Sujet/Sujet _ projet_transversal.pdf" target="_blank" class="btn btn-secondary btn-sm"><i class="fas fa-file-pdf"></i> Sujet</a>
+                    <a href="https://github.com/MiiProject/instantly-play-games.git" target="_blank" class="btn btn-teal btn-sm"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </article>
+        </div>
+
+        <h3 class="subtitle-year section-spacer">2ème Année</h3>
+        <div class="projects-grid">
+            <article class="project-card">
+                <div class="project-header">
+                    <span class="project-category">En cours</span>
+                </div>
+                <h3 class="project-title">Coming Soon</h3>
+                <p class="project-description">Projets de 2ème année à venir.</p>
+                <div class="project-tags">
+                    <span>#PHP</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Section Stages -->
+    <section id="stages" class="section">
+        <h2 class="section-title">
+            <svg class="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Mes Stages
+        </h2>
+
+        <h3 class="subtitle-year">1ère Année</h3>
+        <div class="projects-grid">
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="Image/LogoCasaDiColomba.png" alt="Logo Casa Di Colomba">
+                </div>
+                <div class="project-header">
+                    <span class="project-category">Stage B1</span>
+                </div>
+                <h3 class="project-title">Casa Di Colomba</h3>
+                <p class="project-description">Développement d'un site web d'e-commerce de zéro.</p>
+                <div class="hero-buttons card-actions">
+                    <a href="Sujet/WIEREZ MYLO_DOSSIER_STAGE_B1.pdf" target="_blank" class="btn btn-teal btn-sm">
+                        <i class="fas fa-file-pdf"></i> Rapport
+                    </a>
+                    <a href="Sujet/Resume_rapport_stage_Mylo_Wierez.pdf" target="_blank" class="btn btn-teal btn-sm">
+                        <i class="fas fa-file-pdf"></i> Résumer Rapport
+                    </a>
+                    <a href="Sujet/Evaluation et Attestation stage Mylo Wierez remplie casadicolomba.pdf" target="_blank" class="btn btn-secondary btn-sm">
+                        <i class="fas fa-certificate"></i> Évaluation et Attestation
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Section Veille Technologique -->
+    <section id="veille" class="section">
+        <h2 class="section-title">
+            <svg class="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Mes Veilles
+        </h2>
+
+        <div class="bento-grid section-spacer-bottom">
+            <div class="bento-card card-large">
+                <h3>La veille technologique, c'est quoi ?</h3>
+                <p>
+                    La veille technologique est un processus de surveillance des évolutions et des innovations dans un domaine précis. Elle permet de recueillir, analyser et exploiter des informations sur les nouvelles technologies afin d’anticiper les changements, innover, rester compétitif et saisir des opportunités.
+                </p>
+            </div>
+        </div>
+
+        <h3 class="subtitle-year">1ère Année</h3>
+        <div class="projects-grid">
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="https://images.ctfassets.net/fy5ib9j6vdru/4qcdHI4d9YJ5tZAZDeyj9b/f912da59104820d04c343dde8926ce39/Galaxy_s26_seo_hero_desktop_gif.gif" alt="Veille Samsung Galaxy S26">
+                </div>
+                <div class="project-header">
+                    <span class="project-category">Mobiles & Innovation</span>
+                </div>
+                <h3 class="project-title">Samsung phone (S26)</h3>
+                <p class="project-description">
+                    Le lancement du Samsung Galaxy S26, objet principal de cette veille, ne représente pas une simple mise à jour annuelle.
+                </p>
+                <div class="hero-buttons card-actions">
+                    <a href="code_rendu/2025-26_B1-WIEREZ-MYLO_DocumentVeilleTechno.pdf" target="_blank" class="btn btn-teal btn-sm">
+                        <i class="fas fa-table"></i> Dossier de veille
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Section Épreuve E5 -->
+    <section id="e5" class="section">
+        <h2 class="section-title">
+            <svg class="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Épreuve E5
+        </h2>
+
+        <div class="bento-grid">
+            <div class="bento-card card-large card-e5">
+                <div class="card-icon card-icon-large">⏳</div>
+                <h3>À venir</h3>
+                <p>Le contenu lié à l'épreuve E5 sera disponible prochainement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="section contact-section">
+        <div class="contact-box">
+            <h2>Me contacter</h2>
+            <p>Un projet, une question ou une offre de stage ? N'hésitez pas !</p>
+
+            <form id="contact-form" class="contact-form">
+                <input type="text" name="from_name" placeholder="Votre Nom" required>
+                <input type="email" name="reply_to" placeholder="Votre Email" required>
+                <textarea name="message" placeholder="Votre message" rows="4" required></textarea>
+                <button type="submit" class="btn btn-teal">Envoyer le message</button>
+            </form>
+
+            <div class="social-links footer-socials">
+                <a href="https://github.com/Mylow04" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/mylo-wierez" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:mylo.wierez@ecoles-epsi.net"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Wierez Mylo - 2026 | mylo.wierez@ecoles-epsi.net</p>
+</footer>
+
+<script type="text/javascript">
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const serviceID = 'service_hpryq2d';
+        const templateID = 'template_6pqc00v';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(function() {
+                alert('Message envoyé avec succès !');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                alert("Échec de l'envoi... Erreur : " + JSON.stringify(error));
+            });
+    });
+</script>
+
 </body>
 </html>

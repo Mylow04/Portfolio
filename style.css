@@ -910,3 +910,18 @@ footer {
     gap: 1rem;
     order: 3; /* Se place après les liens du menu */
 }
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.logo-img {
+    height: 35px; /* Ajuste la hauteur de ton logo ici */
+    width: auto;
+    object-fit: contain;
+}

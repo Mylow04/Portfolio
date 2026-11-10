@@ -27,13 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.add('fade-in');
         observer.observe(el);
     });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-
-    // --- 1. GESTION DU MODE CLAIR / SOMBRE ---
+    // --- 3. GESTION DU MODE CLAIR / SOMBRE & FAVICON ---
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
+    const favicon = document.getElementById('favicon');
 
     // Vérifier si l'utilisateur avait déjà choisi le mode clair
     const savedTheme = localStorage.getItem('portfolio-theme');
@@ -43,15 +41,18 @@ document.addEventListener('DOMContentLoaded', () => {
             themeIcon.classList.remove('fa-sun');
             themeIcon.classList.add('fa-moon');
         }
+        if (favicon) {
+            favicon.href = 'Image/favicon.png'; // Adapte si tu as un favicon clair spécifique
+        }
     }
 
-    // Événement au clic sur le bouton
+    // Événement au clic sur le bouton de thème
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('light-theme');
             const isLight = document.body.classList.contains('light-theme');
 
-            // Changer l'icône (Soleil -> Lune)
+            // Changer l'icône du bouton (Soleil <-> Lune)
             if (themeIcon) {
                 if (isLight) {
                     themeIcon.classList.remove('fa-sun');
@@ -62,12 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Sauvegarder la préférence
+            // Sauvegarder la préférence dans le navigateur
             localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
         });
     }
 
-    // --- 2. GESTION DU MENU MOBILE ---
+    // --- 4. GESTION DU MENU MOBILE ---
     const mobileToggle = document.getElementById('mobile-toggle');
     const navLinks = document.getElementById('nav-links');
 

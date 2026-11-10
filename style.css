@@ -925,3 +925,19 @@ footer {
     width: auto;
     object-fit: contain;
 }
+.card-actions {
+    display: flex;
+    flex-wrap: nowrap; /* Empêche les boutons de passer à la ligne */
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-actions .btn {
+    flex: 1; /* Chaque bouton prend une part égale de l'espace */
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap; /* Empêche le texte du bouton de couper sur plusieurs lignes */
+    padding: 0.4rem 0.5rem; /* Réduit légèrement les marges intérieures si besoin */
+    font-size: 0.8rem; /* Ajuste légèrement la taille du texte si nécessaire */
+}
